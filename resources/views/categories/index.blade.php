@@ -5,7 +5,7 @@
 
 
     <h1>Categories </h1> <a href="/categories/create" >
-    <center><button class="btn-success">Create Post</button></a></center>
+    <center><button class="btn-success">Add New Category</button></a></center>
         <table class="table table-striped">
         <th><strong> Category Title </strong></th>
         <th><strong> Created At </strong></th>

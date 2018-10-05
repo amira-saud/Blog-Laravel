@@ -19,10 +19,7 @@ Route::get('/', function () {
 });*/
 
 /*************POSTS *********************/
-Route::get(
-    'posts',
-    'PostController@index'
-)->name('posts.index');
+Route::get('posts','PostController@index');;
 Route::get('posts/view/{id}','PostController@view');
 
 Route::get('posts/edit/{id}','PostController@edit');
@@ -33,10 +30,7 @@ Route::delete('posts/delete/{id}','PostController@destroy');
 
 
 /*************CATEGORIES *********************/
-Route::get(
-    'categories',
-    'CategoryController@index'
-)->name('categories.index');
+Route::get('categories','CategoryController@index')->name('categories.index');
 Route::get('categories/view/{id}','CategoryController@view');
 
 Route::get('categories/edit/{id}','CategoryController@edit');
@@ -45,6 +39,15 @@ Route::get('categories/create','CategoryController@create');
 Route::post('categories','CategoryController@store');
 Route::delete('categories/delete/{id}','CategoryController@destroy');
 
+/*************USERS *********************/
+Route::get('users','UserController@index');;
+Route::get('users/view/{id}','UserController@view');
+
+Route::get('users/edit/{id}','UserController@edit');
+Route::put('users/update/{id}','UserController@update');
+Route::get('users/create','UserController@create');
+Route::post('users','UserController@store');
+Route::delete('users/delete/{id}','UserController@destroy');
 
 Auth::routes();
 
