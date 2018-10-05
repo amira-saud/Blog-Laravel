@@ -17,6 +17,8 @@ Route::get('/', function () {
 /*Route::get('posts',function(){
     return 'hello  from posts';
 });*/
+
+/*************POSTS *********************/
 Route::get(
     'posts',
     'PostController@index'
@@ -28,6 +30,21 @@ Route::put('posts/update/{id}','PostController@update');
 Route::get('posts/create','PostController@create');
 Route::post('posts','PostController@store');
 Route::delete('posts/delete/{id}','PostController@destroy');
+
+
+/*************CATEGORIES *********************/
+Route::get(
+    'categories',
+    'CategoryController@index'
+)->name('categories.index');
+Route::get('categories/view/{id}','CategoryController@view');
+
+Route::get('categories/edit/{id}','CategoryController@edit');
+Route::put('categories/update/{id}','CategoryController@update');
+Route::get('categories/create','CategoryController@create');
+Route::post('categories','CategoryController@store');
+Route::delete('categories/delete/{id}','CategoryController@destroy');
+
 
 Auth::routes();
 
