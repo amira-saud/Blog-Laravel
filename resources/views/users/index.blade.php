@@ -7,7 +7,7 @@
     <h1>Users </h1> 
         <table class="table table-striped">
         <th><strong> User Name </strong></th>
-        
+        <th><strong> User E-mail </strong></th>
 
         <th><strong> Actions </strong></th>
         <th><strong>  </strong></th>
@@ -15,7 +15,7 @@
         @foreach ($users as $user)
         <tr>
 <td> {{ $user->name }} </td>
-
+<td> {{ $user->email }} </td>
 
 <td>    
 

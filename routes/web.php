@@ -19,7 +19,7 @@ Route::get('/', function () {
 });*/
 
 /*************POSTS *********************/
-Route::get('posts','PostController@index');;
+Route::get('posts','PostController@index');
 Route::get('posts/view/{id}','PostController@view');
 
 Route::get('posts/edit/{id}','PostController@edit');
@@ -27,7 +27,6 @@ Route::put('posts/update/{id}','PostController@update');
 Route::get('posts/create','PostController@create');
 Route::post('posts','PostController@store');
 Route::delete('posts/delete/{id}','PostController@destroy');
-
 
 /*************CATEGORIES *********************/
 Route::get('categories','CategoryController@index')->name('categories.index');

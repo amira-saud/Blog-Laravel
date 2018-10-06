@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">LaraBlog Posts</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,10 +14,31 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                     <!-- Main Content -->
+                     @foreach ($posts as $post)
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-preview">
+            <a href="/posts/view/{{ $post->id }}">
+              <h2 class="post-title">
+              {{ $post->title }}
+    
+              </h2>
+              <h3 class="post-subtitle">
+              {{ str_limit($post->description , $limit = 50, $end = '...') }}               </h3>
+            </a>
+            <p class="post-meta">Posted by:
+              <a href="#"></a>
+               on {{ date('M j, Y', strtotime( $post->created_at )) }}</p>
+          </div>
+          <hr>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
+    <div class="pagination justify-content-center"> {{ $posts->links() }}</div>
+ 
 </div>
 @endsection
