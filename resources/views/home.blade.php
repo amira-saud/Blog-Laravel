@@ -28,7 +28,9 @@
               <h3 class="post-subtitle">
               {{ str_limit($post->description , $limit = 50, $end = '...') }}               </h3>
             </a>
+
             <p class="post-meta">Posted by:
+            {{ $post->user->name }}<br>
               <a href="#"></a>
                on {{ date('M j, Y', strtotime( $post->created_at )) }}</p>
           </div>

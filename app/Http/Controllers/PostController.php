@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
+use Auth;
 //use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
@@ -46,11 +48,13 @@ class PostController extends Controller
        
      
         $post->save();
-        return redirect()->route('posts.index');
+        return redirect('/posts');
+        
      }
 
      public function create()
      {
+     
          return view('posts.create');
      }
 
@@ -60,10 +64,10 @@ class PostController extends Controller
         Post::create([
             'title' => $request->title,
             'description' => $request->description,
+            'user_id' => Auth::user()->id,
         ]);
         
-       return redirect(route('posts.index')); 
-    }
+        return redirect('/posts');    }
 
      public function destroy($id)
      {
@@ -72,7 +76,6 @@ class PostController extends Controller
          $post->delete();
          
          
-         return redirect()->route('posts.index');
-     }
+         return redirect('/posts');     }
 
 }

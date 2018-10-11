@@ -13,10 +13,12 @@
             <div class="blog-content">
                 {{$post->description}}
             </div><!-- /.blog-post --><br>
-            <p>{{ date('M j, Y', strtotime( $post->created_at )) }} </p>
-            
+         
            
-
+            <p class="post-meta">Posted by:
+            {{ $post->user->name }}<br>
+              <a href="#"></a>
+               on {{ date('M j, Y', strtotime( $post->created_at )) }}</p>
         </div><!-- /.blog-main -->
         
         
