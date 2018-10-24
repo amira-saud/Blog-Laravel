@@ -15,7 +15,9 @@
                 {{$post->description}}
                 </h4>
             </div><!-- /.blog-post --><br>
-
+            <br>
+            <img src="/uploads/{{$post->photo }}" style="width:400px;height:320px" >
+            <br>
            
             <p class="post-meta">Posted by:
             {{ $post->user->name }}<br>

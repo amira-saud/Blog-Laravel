@@ -29,12 +29,12 @@
               {{ str_limit($post->description , $limit = 50, $end = '...') }}               </h3>
             </a>
             <br>
-            <a href="#"><img src="/uploads/{{$post->photo }}" style="width:400px;height:320px" ></a>
+            <a href="/posts/view/{{ $post->id }}"><img src="/uploads/{{$post->photo }}" style="width:400px;height:320px" ></a>
             <br>
 
             <p class="post-meta">Posted by:
             {{ $post->user->name }}<br>
-              <a href="#"></a>
+              
                on {{ date('M j, Y', strtotime( $post->created_at )) }}</p>
           </div>
           <hr>
