@@ -11,9 +11,11 @@
         <div class="col-sm-8 blog-main">
             
             <div class="blog-content">
+            <h4>
                 {{$post->description}}
+                </h4>
             </div><!-- /.blog-post --><br>
-         
+
            
             <p class="post-meta">Posted by:
             {{ $post->user->name }}<br>

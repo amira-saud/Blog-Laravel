@@ -48,6 +48,7 @@ Route::get('users/create','UserController@create');
 Route::post('users','UserController@store');
 Route::delete('users/delete/{id}','UserController@destroy');
 
+Route::get('users/view/{id}','HomeController@viewProfile');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

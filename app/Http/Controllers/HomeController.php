@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -27,8 +28,20 @@ class HomeController extends Controller
         $posts = Post::paginate(5);
        
         $post = $posts->first();
+        
         return view('home',[
             'posts' => $posts
         ]);
     }
+
+    public function viewProfile($id)
+    {
+        if($id != " "){
+           $user = User::find($id);
+           if ( $user){
+                return view('users.view',[ 'user' => $user ]);
+           }
+        }
+    }
+
 }

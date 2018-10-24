@@ -26,6 +26,7 @@
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     LaraBlog
                 </a>
+                
 
                                 <a class="navbar-brand" href="{{ url('/users') }}">
                     Manage Users

@@ -28,6 +28,9 @@
               <h3 class="post-subtitle">
               {{ str_limit($post->description , $limit = 50, $end = '...') }}               </h3>
             </a>
+            <br>
+            <a href="#"><img src="/uploads/{{$post->photo }}" style="width:400px;height:320px" ></a>
+            <br>
 
             <p class="post-meta">Posted by:
             {{ $post->user->name }}<br>

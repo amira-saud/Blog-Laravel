@@ -14,7 +14,7 @@
 @endif
 <h1>post edit</h1>
 
-<form method="post" action="/posts/update/{{ $post->id}}">
+<form method="post" action="/posts/update/{{ $post->id}}" enctype="multipart/form-data">
 {{csrf_field()}}
 {{method_field('PUT')}}
 Title :- <input type="text" name="title" value="{{ $post->title }}">
@@ -22,8 +22,16 @@ Title :- <input type="text" name="title" value="{{ $post->title }}">
 Description :- 
 <textarea name="description"> {{$post->description}}</textarea>
 <br>
+<div class="form-group row">
+                            <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('Upload Your photo') }}</label>
+                            <div class="form-group col-md-6">
+                            <input value="{{$post->photo}}" type="file" class="form-control-file"  name="photo">
+
+                            </div>
+                          </div>
 <br>
 <input type="submit" value="Submit" class="btn btn-primary">
+
 </form>
 
 @endsection

@@ -47,6 +47,13 @@ class PostController extends Controller
         $post->description = $request->input('description');
        
      
+
+
+        $request->file('photo')->store('/uploads');
+        $photoName = $request->file('photo')->hashName();
+        $post->photo = $photoName; 
+   
+        
         $post->save();
         return redirect('/posts');
         
@@ -61,11 +68,19 @@ class PostController extends Controller
     public function store(Request $request)
     {
         
+
+        $request->file('photo')->store('/uploads');
+        $photoName = $request->file('photo')->hashName();
+        
         Post::create([
             'title' => $request->title,
             'description' => $request->description,
             'user_id' => Auth::user()->id,
+            'photo'=>$photoName,
         ]);
+
+
+        //Post::create($request->all());
         
         return redirect('/posts');    }
 

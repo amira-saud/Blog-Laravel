@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
                 $table->timestamps();
 
                 
-                $table->integer('user_id')->nullable();
+                $table->integer('user_id')->default(1);
           });
      
     }
