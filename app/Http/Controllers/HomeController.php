@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use App\Category;
 class HomeController extends Controller
 {
     /**
@@ -30,7 +31,7 @@ class HomeController extends Controller
         $post = $posts->first();
         
         return view('home',[
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 

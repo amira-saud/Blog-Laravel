@@ -31,7 +31,10 @@
             <br>
             <a href="/posts/view/{{ $post->id }}"><img src="/uploads/{{$post->photo }}" style="width:400px;height:320px" ></a>
             <br>
-
+            <p class="post-meta">Category:
+            {{ $post->category->title }}
+              </p>
+          </div>
             <p class="post-meta">Posted by:
             {{ $post->user->name }}<br>
               
