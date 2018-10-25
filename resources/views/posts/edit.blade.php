@@ -28,7 +28,18 @@ Description :-
                             <input value="{{$post->photo}}" type="file" class="form-control-file"  name="photo">
 
                             </div>
+    
                           </div>
+                          <br>
+<div class="col-md-4 col-form-label ">
+Post Category
+<select class="form-control" name="category_id">
+@foreach ($categories as $category)
+    <option @if($category->id == $post->category->id) selected @endif value="{{$category->id}}">{{$category->title}}</option>
+@endforeach
+
+</select>
+</div>
 <br>
 <input type="submit" value="Submit" class="btn btn-primary">
 

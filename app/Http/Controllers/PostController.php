@@ -33,10 +33,11 @@ class PostController extends Controller
 
     public function edit($id)
     {
+        $categories = Category::all();
         if($id != " "){
            $post = Post::find($id);
            if ( $post){
-                return view('posts.edit',[ 'post' => $post ]);
+                return view('posts.edit',[ 'post' => $post, 'categories'=>$categories ]);
            }
         }
     }
@@ -46,10 +47,8 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->title= $request->input('title');
         $post->description = $request->input('description');
-       
-     
-
-
+        $post->category_id = $request->input('category_id');
+    
         $request->file('photo')->store('/uploads');
         $photoName = $request->file('photo')->hashName();
         $post->photo = $photoName; 
