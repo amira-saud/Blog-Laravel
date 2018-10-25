@@ -62,8 +62,8 @@ class PostController extends Controller
 
      public function create()
      {
-     
-         return view('posts.create');
+        $categories = Category::all();
+        return view('posts.create',['categories'=>$categories]);
      }
 
     public function store(Request $request)
@@ -78,6 +78,7 @@ class PostController extends Controller
             'description' => $request->description,
             'user_id' => Auth::user()->id,
             'photo'=>$photoName,
+            'category_id' => $request->category_id,
         ]);
 
 

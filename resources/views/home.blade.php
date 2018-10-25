@@ -31,9 +31,13 @@
             <br>
             <a href="/posts/view/{{ $post->id }}"><img src="/uploads/{{$post->photo }}" style="width:400px;height:320px" ></a>
             <br>
-            <p class="post-meta">Category:
+            <div>Category:
+            <a href="#">
+            <b class="post-meta">
             {{ $post->category->title }}
-              </p>
+              </b>
+              </a>
+              </div>
           </div>
             <p class="post-meta">Posted by:
             {{ $post->user->name }}<br>
@@ -44,8 +48,9 @@
                 </div>
             </div>
         </div>
-        @endforeach
+       
     </div>
+    @endforeach
     <div class="pagination justify-content-center"> {{ $posts->links() }}</div>
  
 </div>

@@ -26,6 +26,16 @@ Description :-
                                     <input type="file" class="form-control-file" name="photo">
 
                                     </div>
+<br><br>
+<div class="col-md-4 col-form-label ">
+Post Category
+<select class="form-control" name="category_id">
+@foreach ($categories as $category)
+    <option value="{{$category->id}}">{{$category->title}}</option>
+@endforeach
+
+</select>
+</div>
 <br>
 <br>
 <input type="submit" value="Submit" class="btn btn-primary">

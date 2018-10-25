@@ -14,13 +14,13 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'user_id', 'photo'
+        'title', 'description', 'user_id', 'photo','category_id'
     ];
 
     public function user(){
         return $this->belongsTo(User::class);
     }
     public function category(){
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Category::class);
     }
 }
