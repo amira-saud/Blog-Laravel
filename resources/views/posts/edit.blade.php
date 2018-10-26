@@ -17,10 +17,10 @@
 <form method="post" action="/posts/update/{{ $post->id}}" enctype="multipart/form-data">
 {{csrf_field()}}
 {{method_field('PUT')}}
-Title :- <input type="text" name="title" value="{{ $post->title }}">
+Title :- <input type="text" name="title" value="{{ $post->title }}" required>
 <br><br>
 Description :- 
-<textarea name="description"> {{$post->description}}</textarea>
+<textarea name="description" required> {{$post->description}}</textarea>
 <br>
 <div class="form-group row">
                             <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('Upload Your photo') }}</label>
@@ -33,7 +33,7 @@ Description :-
                           <br>
 <div class="col-md-4 col-form-label ">
 Post Category
-<select class="form-control" name="category_id">
+<select class="form-control" name="category_id" required>
 @foreach ($categories as $category)
     <option @if($category->id == $post->category->id) selected @endif value="{{$category->id}}">{{$category->title}}</option>
 @endforeach
