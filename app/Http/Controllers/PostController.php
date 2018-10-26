@@ -42,8 +42,12 @@ class PostController extends Controller
         }
     }
     public function update(Request $request, $id)
-    {
-     
+    {     
+        $this->validate(request(), [
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
         $post = Post::find($id);
         $post->title= $request->input('title');
         $post->description = $request->input('description');
@@ -67,7 +71,10 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        
+        $this->validate(request(), [
+            'title' => 'required',
+            'description' => 'required'
+        ]);
 
         $request->file('photo')->store('/uploads');
         $photoName = $request->file('photo')->hashName();
@@ -80,10 +87,9 @@ class PostController extends Controller
             'category_id' => $request->category_id,
         ]);
 
-
-        //Post::create($request->all());
         
-        return redirect('/posts');    }
+        return redirect('/posts');    
+    }
 
      public function destroy($id)
      {
