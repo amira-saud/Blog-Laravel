@@ -52,3 +52,4 @@ Route::get('users/view/{id}','HomeController@viewProfile');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/catposts/{id}', 'CategoryController@categoryPosts');

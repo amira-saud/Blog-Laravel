@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
-
+use App\Post;
 class CategoryController extends Controller
 {
     public function index()
@@ -70,6 +70,23 @@ class CategoryController extends Controller
          
          
          return redirect()->route('categories.index');
+     }
+     public function categoryPosts($id)
+     {
+
+        if($id != " "){
+            $category = Category::find($id);
+            if ( $category){
+
+                $posts = Post::where('category_id',$id)->get();
+                return view('categories.catPosts',[
+                    'posts' => $posts
+                ]);
+            }
+         }
+
+        // $categories = Category::all();
+        
      }
 
 }

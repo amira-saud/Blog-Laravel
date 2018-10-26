@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">LaraBlog Newest Posts</div>
+                <div class="card-header">Category Posts</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -31,13 +31,7 @@
             <br>
             <a href="/posts/view/{{ $post->id }}"><img src="/uploads/{{$post->photo }}" style="width:400px;height:320px" ></a>
             <br>
-            <div>Category:
-            <a href="/catposts/{{ $post->category->id }}">
-            <b class="post-meta">
-            {{ $post->category->title }}
-              </b>
-              </a>
-              </div>
+            
           </div>
             <p class="post-meta">Posted by:
             {{ $post->user->name }}<br>
@@ -51,7 +45,6 @@
        
     </div>
     @endforeach
-    <div class="pagination justify-content-center"> {{ $posts->links() }}</div>
  
 </div>
 @endsection
