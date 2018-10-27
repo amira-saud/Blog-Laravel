@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(2);
+        $users = User::paginate(5);
       
         $user = $users->first();
         return view('users.index',[
@@ -25,6 +25,17 @@ class UserController extends Controller
                 return view('users.view',[ 'user' => $user ]);
            }
         }
+    }
+    public function promote($id)
+    {
+        
+           $user = User::find($id);
+           if ( $user){
+            $user->is_admin ='1';
+            $user->save();
+                //return view('users.view',[ 'user' => $user ]);
+                dd('done');
+            }
     }
 
 

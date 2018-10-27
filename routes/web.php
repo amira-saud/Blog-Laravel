@@ -53,3 +53,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/catposts/{id}', 'CategoryController@categoryPosts');
+
+Route::get('users/promote/{id}','UserController@promote');

@@ -11,11 +11,12 @@
 
         <th><strong> Actions </strong></th>
         <th><strong>  </strong></th>
-
+        <th><strong> Promote </strong></th>
         @foreach ($users as $user)
         <tr>
 <td> {{ $user->name }} </td>
 <td> {{ $user->email }} </td>
+
 
 <td>    
 
@@ -28,6 +29,11 @@
                 <button type="submit" class="btn btn-danger" onclick="return confirm('are you sure?')" value="Delete"/>Delete</button>
             </form>
             </td>
+            <td>    
+@if ($user->is_admin==0)
+<a href="/users/promote/{{ $user->id }}" ><button class="btn-primary">Promote</button></a>
+@endif
+</td>
 @endforeach
 
         </tr>
