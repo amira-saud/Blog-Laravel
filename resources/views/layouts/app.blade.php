@@ -26,7 +26,8 @@
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     LaraBlog
                 </a>
-                
+                @if (Auth::check())
+                @if (Auth::user()->is_admin==1)
 
                                 <a class="navbar-brand" href="{{ url('/users') }}">
                     Manage Users
@@ -39,7 +40,9 @@
                                 <a class="navbar-brand" href="{{ url('/categories') }}">
                                 Manage Categories
                 </a>
-                
+                @endif
+                @endif
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -64,7 +67,7 @@
                             </li>
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="users/view/{{ Auth::user()->name }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 

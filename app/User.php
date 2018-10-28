@@ -30,6 +30,10 @@ class User extends Authenticatable
     public function post(){
         return $this->belongsToMany(Post::class);
     }
+    public function comments()
+    {
+    return $this->hasMany('App\Comment');
+    }
 
     
 }
