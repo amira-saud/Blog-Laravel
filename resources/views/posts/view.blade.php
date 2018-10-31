@@ -1,47 +1,75 @@
 @extends('layouts.app')
 @section('content')
 
-
 <div class="blog-header">
-<h1>{{ $post->title }}<h1>
-       
-    </div>
-    
-    <div class="row">
-        <div class="col-sm-8 blog-main">
-            
-            <div class="blog-content">
-            <h4>
-                {{$post->description}}
-                </h4>
-            </div><!-- /.blog-post --><br>
-            <br>
-            <img src="/uploads/{{$post->photo }}" style="width:400px;height:320px" >
-            <br>
-           
-            <p class="post-meta">Posted by:
-            {{ $post->user->name }}<br>
-              <a href="#"></a>
-               on {{ date('M j, Y', strtotime( $post->created_at )) }}</p>
-        </div><!-- /.blog-main -->
-        
-        
-    </div><!-- /.row -->
 
-<h3>Comments</h3>
+     <!-- Page Content -->
+     <div class="container" style="width:1000px; margin:0 auto;">
+
+<div class="row">
+
+  <!-- Post Content Column -->
+  <div class="col-lg-8">
+
+    <!-- Title -->
+    <h1 class="mt-4">{{ $post->title }}</h1>
+
+    <!-- Author -->
+    <p class="lead">
+      by
+      <a href="#">{{ $post->user->name }}</a>
+    </p>
+
+    <hr>
+
+    <!-- Date/Time -->
+    <p>P{{ date('M j, Y', strtotime( $post->created_at )) }}</p>
+
+    <hr>
+
+    <!-- Preview Image -->
+    <img class="img-fluid rounded" src="/uploads/{{$post->photo }}" alt="">
+
+    <hr>
+
+    <!-- Post Content -->
+
+
+    <blockquote class="blockquote">
+      <p class="mb-0">{{$post->description}}</p>
+
+    </blockquote>
+
+    <hr>
+
+ <div class="card my-4">
 @if (Auth::check())
-<span>{{$post->comments->count()}} {{ str_plural('comment', $post->comments->count()) }}</span>
+<h5 class="card-header">Leave a Comment:</h5>
+<span> This post has {{$post->comments->count()}} {{ str_plural('comment', $post->comments->count()) }}</span>
+
   {{ Form::open(['route' => ['comments.store'], 'method' => 'POST']) }}
-  <p>{{ Form::textarea('body', old('body')) }}</p>
+  <p>{{ Form::textarea('body', old('body'),['class'=>'form-control', 'rows' => 2]) }}</p>
   {{ Form::hidden('post_id', $post->id) }}
-  <p>{{ Form::submit('Send') }}</p>
+  <p>{{ Form::submit('Comment') }}</p>
 {{ Form::close() }}
 @endif
 @forelse ($post->comments as $comment)
-  <p>{{ $comment->user->name }} {{$comment->created_at}}</p>
+<div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+            <h5 class="mt-0">{{ $comment->user->name }}</h5>
+
+  
   <p>{{ $comment->body }}</p>
+  <p style="float:right"> {{$comment->created_at}}</p>
+  </div>
+          </div>
   <hr>
 @empty
   <p>This post has no comments</p>
+  
+  </div>
 @endforelse
+
 @endsection
+
